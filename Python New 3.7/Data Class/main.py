@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 def generate_id() -> str:
     return "".join(random.choices(string.ascii_uppercase, k = 12))
 
-@dataclass
+@dataclass(frozen=True)
 class Person:
     name : str
     address : str
