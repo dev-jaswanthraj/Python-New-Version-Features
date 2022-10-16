@@ -12,7 +12,12 @@ class Person:
     active : str = True
     email_addresses: list[str] = field(default_factory = list)
     id : str = field(init = False, default_factory = generate_id)
-   
+    search_string:str = field(init = False)
+
+    def __post_init__(self):
+        self.search_string = f"{self.name} {self.address}"
+
+    
 
 def main() -> None:
     person = Person(name="Jaswanthraj", address="265-B Mullai Nagar", active=False)
